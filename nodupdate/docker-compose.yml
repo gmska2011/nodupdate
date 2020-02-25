@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  update_service:
+    container_name: nodupdate
+    image: gmska2011/nodupdate:latest 
+    network_mode: host
+    volumes:
+      - /opt/nodupdate/nod:/app/nod
+      - /opt/nodupdate/license:/app/license
