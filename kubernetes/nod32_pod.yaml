@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodupdate-pod
+spec:
+  volumes:
+    - name: nod-pv-storage
+      persistentVolumeClaim:
+        claimName: nod-pv-claim
+    - name: license-file
+      configMap:
+        name: nodlicense-config
+  containers:
+    - name: nod-pv-container
+      image: gmska2011/nodupdate:latest
+      volumeMounts:
+        - mountPath: "/app/nod"
+          name: nod-pv-storage
+        - name: license-file
+          mountPath: /app/license/mirror.lf
+          subPath: mirror.lf
