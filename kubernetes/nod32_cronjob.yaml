@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: nodupdate-job
 spec:
-  schedule: "*/30 * * * *"
+  schedule: "0 */8 * * *"
   jobTemplate:
     spec:
       template:
