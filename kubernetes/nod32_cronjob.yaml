@@ -3,7 +3,9 @@ kind: CronJob
 metadata:
   name: nodupdate-job
 spec:
-  schedule: "0 */8 * * *"
+  schedule: "4 */8 * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
       template:
